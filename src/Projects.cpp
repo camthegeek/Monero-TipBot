@@ -38,6 +38,7 @@ Projects::Projects(TIPBOT * DPTR) : enabled(true), PLog(nullptr), DiscordPtr(DPT
         { "!delete",          CLASS_RESOLUTION(Delete),                       "\\\"[project]\\\"",                              false,  true,   AllowChannelTypes::Private },
         { "!grantuser",       CLASS_RESOLUTION(GrantUser),                    "\\\"[project]\\\" [user]",                       false,  true,   AllowChannelTypes::Any },
         { "!toggleproject",   CLASS_RESOLUTION(ToggleProject),                "\\\"[project]\\\"",                              false,  true,   AllowChannelTypes::Private },
+        { "!grantaddress",    CLASS_RESOLUTION(GrantAddress),                 "[address] \\\"[project]\\\"",                    false,  true,   AllowChannelTypes::Any },
     };
     PLog = &Poco::Logger::get("Projects");
 }
@@ -129,6 +130,36 @@ void Projects::Help(TIPBOT * DiscordPtr, const UserMessage & message, const Comm
 {
     const auto helpStr = TIPBOT::generateHelpText(GETSTR(DiscordPtr->getUserLang(message.User.id), "PROJECTS_HELP"), Commands, message);
     DiscordPtr->SendMsg(message, helpStr);
+}
+
+void Projects::GrantAddress(TIPBOT * DiscordPtr, const UserMessage & message, const Command & me)
+{
+    Poco::StringTokenizer cmd(message.Message, " ");
+
+    if (cmd.count() < 2)
+        DiscordPtr->CommandParseError(message, me);
+    else
+    {
+        std::string  name;
+        unsigned int ret_idx;
+        bool nameValid = Util::parseQuotedString(cmd, 2, name, ret_idx);
+        if (nameValid)
+        {
+            if (!ProjectMap.count(name))
+            {
+                PLog->warning("Project %s does not exists!", name);
+                DiscordPtr->SendMsg(message, GETSTR(DiscordPtr->getUserLang(message.User.id), "PROJECTS_NOT_EXIST"));
+                return;
+            }
+
+            const auto & proj = ProjectMap[name];
+	    const auto& address = cmd[1];
+            const auto tx = proj.RPC->MyAccount.transferAllMoneyToAddress(address);
+
+            DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "PROJECTS_GRANT_ADDRESS"), name, address, tx.tx_hash));
+        }
+        else  DiscordPtr->CommandParseError(message, me);
+    }
 }
 
 void Projects::Create(TIPBOT * DiscordPtr, const UserMessage & message, const Command & me)

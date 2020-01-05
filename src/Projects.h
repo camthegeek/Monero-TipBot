@@ -123,6 +123,7 @@ public:
     void                                ListProjects(TIPBOT * DiscordPtr, const UserMessage& message, const struct Command & me);
     void                                ViewStatus(TIPBOT * DiscordPtr, const UserMessage& message, const struct Command & me);
     void                                ProjectAddress(TIPBOT * DiscordPtr, const UserMessage& message, const struct Command & me);
+    void                                GrantAddress(TIPBOT * DiscordPtr, const UserMessage& message, const struct Command & me);
 
 private:
     std::map<std::string, Project>      ProjectMap;
