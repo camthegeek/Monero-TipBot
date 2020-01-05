@@ -63,6 +63,7 @@ struct RPCConfig
     unsigned char           mixin;
     std::string             coin_abbv;
     unsigned short          address_length;
+    unsigned short          integrated_address_length;
     std::string             filename;
     std::string             hostname;
     std::string             daemon_hostname;
@@ -78,6 +79,7 @@ struct RPCConfig
             CEREAL_NVP(mixin),
             CEREAL_NVP(coin_abbv),
             CEREAL_NVP(address_length),
+            CEREAL_NVP(integrated_address_length),
             CEREAL_NVP(filename),
             CEREAL_NVP(hostname),
             CEREAL_NVP(daemon_hostname),
@@ -240,6 +242,7 @@ void RPCConfig::load(Archive & ar)
         CEREAL_NVP(mixin),
         CEREAL_NVP(coin_abbv),
         CEREAL_NVP(address_length),
+        CEREAL_NVP(integrated_address_length),
         CEREAL_NVP(filename),
         CEREAL_NVP(hostname),
         CEREAL_NVP(daemon_hostname)

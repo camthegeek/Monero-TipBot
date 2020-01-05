@@ -22,7 +22,7 @@
             "mixin": 12,
             "coin_abbv": "MSR",
             "address_length": 95,
-            "sub_address_length": 106,
+            "integrated_address_length": 106,
             "filename": "masari-wallet-rpc",
             "hostname": "127.0.0.1",
             "daemon_hostname": "127.0.0.1:38081",
