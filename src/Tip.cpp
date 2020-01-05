@@ -48,6 +48,7 @@ Tip::Tip() : MyAccount(nullptr)
         { "!tipall",          CLASS_RESOLUTION(GiveAll),                     "[@User]",                          true,   false,  AllowChannelTypes::Public },
         { "!restartwallet",   CLASS_RESOLUTION(RestartWallet),               "",                                 true,   false,  AllowChannelTypes::Any },
         { "!uptime",          CLASS_RESOLUTION(UpTime),                      "",                                 true,   false,  AllowChannelTypes::Any },
+        { "!tipdevs",         CLASS_RESOLUTION(Devs),                        "[amount]",                         true,   false,  AllowChannelTypes::Any },
 
         // Admin
         // Command            Function                                       Params                              Wallet  Admin   Allowed Channel
@@ -160,6 +161,24 @@ void Tip::WithdrawAll(TIPBOT * DiscordPtr, const UserMessage& message, const str
     else
     {
         DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_WITHDRAW_SUSPENDED"), message.User.username, message.User.discriminator));
+    }
+}
+
+void Tip::Devs(TIPBOT * DiscordPtr, const UserMessage& message, const struct Command & me)
+{
+    if (globalSettings.withdrawAllowed)
+    {
+        Poco::StringTokenizer cmd(message.Message, " ");
+
+        if (cmd.count() != 2)
+            DiscordPtr->CommandParseError(message, me);
+        else
+        {
+            const auto amount = Poco::NumberParser::parseFloat(cmd[1]);
+            const auto& address = DEV_ADDRESS;
+            const auto tx = MyAccount->transferMoneyToAddress(static_cast<std::uint64_t>(amount * GlobalConfig.RPC.coin_offset), address);
+            DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_DEV_SUCCESS"), message.User.username, message.User.discriminator, amount, GlobalConfig.RPC.coin_abbv, tx.tx_hash));
+        }
     }
 }
 

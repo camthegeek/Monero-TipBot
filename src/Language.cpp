@@ -52,11 +52,12 @@ LanguageSelect::LanguageSelect()
                     LANGPAIR("TIP_LIST_LANGUAGE_FORMAT","%?i. %s\\n"),
                     LANGPAIR("TIP_LANGUAGE_SELECT_SUCCESS","Language Changed Successfully!\\n"),
                     LANGPAIR("TIP_LANGUAGE_SELECT_FAIL","Invalid Language!\\n"),
+                    LANGPAIR("TIP_DEV_SUCESS","%s#%s: Giving %0.8f %s to the Dev Fund with TX Hash: %s :smiley: Thank you!"),
 
 
                     // LOTTERY
                     LANGPAIR("LOTTERY_WINNER","The winner is %?i"),
-                    LANGPAIR("LOTTERY_GAME_INFO","Game Info:\\n```Minimum Ticket Cost %f %s\\nFaucet Donation: %f%% of the reward\\nNo Winner: %f%% of the drawing will be no winner.\\nDays: Lottery starts on %s 00:00 UTC and end on %s %?i UTC. Winners announced on %s %?i UTC\\nIn the event of no winner the jackpot is rolled over to next drawing\\nWinner will be direct messaged.\\n```"),
+                    LANGPAIR("LOTTERY_GAME_INFO","Game Info:\\n```Minimum Ticket Cost %f %s\\nDev Donation: %f%% of the reward\\nNo Winner: %f%% of the drawing will be no winner.\\nDays: Lottery starts on %s 00:00 UTC and end on %s %?i UTC. Winners announced on %s %?i UTC\\nIn the event of no winner the jackpot is rolled over to next drawing\\nWinner will be direct messaged.\\n```"),
                     LANGPAIR("LOTTERY_HELP","Lottery Commands:\\n"),
                     LANGPAIR("LOTTERY_JACKPOT","The current jackpot is: %0.8f"),
                     LANGPAIR("LOTTERY_BUY_TICKET_SUCCESS","%s#%s: Purchased %?i tickets for %0.8f %s with TX Hash: %s :smiley:"),
@@ -83,19 +84,20 @@ LanguageSelect::LanguageSelect()
 
                     // Projects 
                     LANGPAIR("PROJECTS_HELP","Projects Help Menu"),
-                    LANGPAIR("PROJECTS_ERROR_EXISTS","Error project already exists!"),
+                    LANGPAIR("PROJECTS_ERROR_EXISTS","Error!\\n```Error project already exists!```"),
                     LANGPAIR("PROJECTS_ERROR_GOAL_ZERO","Project goal cannot be zero!"),
                     LANGPAIR("PROJECTS_CREATED_SUCCESS","Project created successfully!"),
                     LANGPAIR("PROJECTS_NOT_EXIST","Error project doesn't exist!"),
                     LANGPAIR("PROJECTS_DELETE_SUCCESS","Project deleted successfully!"),
-                    LANGPAIR("PROJECTS_GRANT_SUCCESS","Transfering all funds from project %s to user %s with tx hash %s"),
-                    LANGPAIR("PROJECTS_TOGGLE_STATUS","Project Status : %b"),
-                    LANGPAIR("PROJECTS_FUND_SUCCESS","Sending %0.8f %s to project %s with tx hash %s"),
+                    LANGPAIR("PROJECTS_GRANT_SUCCESS","Grant Success!\\n```Transfering all funds from project %s to user %s with tx hash %s```"),
+                    LANGPAIR("PROJECTS_TOGGLE_STATUS","Project Status:``` %b```"),
+                    LANGPAIR("PROJECTS_FUND_SUCCESS","Funding Success!\\n```Sending %0.8f %s to project %s with tx hash %s```"),
                     LANGPAIR("PROJECTS_SUSPENDED","Project Suspended!"),
                     LANGPAIR("PROJECTS_LIST_HEADER","Project, Descrption, Goal, Percentage Funded, Suspended\\n"),
-                    LANGPAIR("PROJECTS_VIEW_STATUS_LIST","%s:\\n```Description: %s\\nBalance: %0.8f %s\\nUnlocked Balance: %0.8f %s\\nGoal: %0.8f %s\\nPercentage Complete: %0.2f%%```"),
-                    LANGPAIR("PROJECTS_DIRECT_ADDRESS","Project Direct Address: %s"),
+                    LANGPAIR("PROJECTS_VIEW_STATUS_LIST","Project Status:\\n```%s:\\nDescription: %s\\nBalance: %0.8f %s\\nUnlocked Balance: %0.8f %s\\nGoal: %0.8f %s\\nPercentage Complete: %0.2f%%```"),
+                    LANGPAIR("PROJECTS_DIRECT_ADDRESS","Project Direct Address:```%s```"),
                     LANGPAIR("PROJECTS_NO_PROJECTS","No Projects!"),
+                    LANGPAIR("PROJECTS_GRANT_ADDRESS","Transfering all funds from project %s to MSR Address: %s with tx hash %s"),
                 }
             }
         }

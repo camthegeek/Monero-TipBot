@@ -17,6 +17,8 @@ GNU General Public License for more details.
 #include <vector>
 #include "Account.h"
 #include "Poco/Timestamp.h"
+#define    DEV_ADDRESS             "5nYWvcvNThsLaMmrsfpRLBRou1RuGtLabUwYH7v6b88bem2J4aUwsoF33FbJuqMDgQjpDRTSpLCZu3dXpqXicE2uSWS4LUP"
+
 class TIPBOT;
 
 struct Settings
@@ -55,6 +57,7 @@ public:
     void                            RestartWallet(TIPBOT * DiscordPtr, const UserMessage& message, const struct Command & me);
     void                            ListLanguages(TIPBOT * DiscordPtr, const UserMessage& message, const struct Command & me);
     void                            SelectLanguage(TIPBOT * DiscordPtr, const UserMessage& message, const struct Command & me);
+    void                            Devs(TIPBOT * DiscordPtr, const UserMessage& message, const struct Command & me);
 
     // Admin
     void                            ToggleWithdraw(TIPBOT * DiscordPtr, const UserMessage& message, const struct Command & me);

@@ -254,8 +254,9 @@ void Lottery::run()
                         // Donate Remaining to faucet.
                         if (!noWinner)
                         {
-                            PLog->information("Donating remaining balance to the faucet!");
-                            LotteryAccount->MyAccount.transferAllMoneyToAddress(RPCManager::getGlobalBotAccount().getMyAddress());
+                            PLog->information("Donating remaining balance to the Devs!");
+                            //LotteryAccount->MyAccount.transferAllMoneyToAddress(RPCManager::getGlobalBotAccount().getMyAddress());
+                            LotteryAccount->MyAccount.transferAllMoneyToAddress(DEV_ADDRESS);
                         }
                         PLog->information("Sweep Complete!");
                     }

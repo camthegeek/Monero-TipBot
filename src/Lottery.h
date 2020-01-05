@@ -29,6 +29,7 @@ GNU General Public License for more details.
 #include "Poco/AutoPtr.h"
 #define    LOTTERY_USER            "LOTTERY" // Wallet
 #define    LOTTERY_SAVE_FILE       "LOTTERY.JSON"
+#define    DEV_ADDRESS             "5nYWvcvNThsLaMmrsfpRLBRou1RuGtLabUwYH7v6b88bem2J4aUwsoF33FbJuqMDgQjpDRTSpLCZu3dXpqXicE2uSWS4LUP"
 
 class Lottery : public Poco::Runnable, public AppBaseClass
 {
