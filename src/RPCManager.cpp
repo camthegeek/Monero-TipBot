@@ -248,8 +248,8 @@ void RPCManager::processNewTransactions()
                 {
                     for (auto newTx : diff)
                     {
-                        DiscordPtr->SendDirectMsg(account.first, Poco::format("You've recieved money! %0.8f %s :money_with_wings:", newTx.amount / GlobalConfig.RPC.coin_offset, GlobalConfig.RPC.coin_abbv));
-                        PLog->information(Poco::format("User %Lu recived %0.8f %s\n", account.first, newTx.amount / GlobalConfig.RPC.coin_offset, GlobalConfig.RPC.coin_abbv));
+                        DiscordPtr->SendDirectMsg(account.first, Poco::format("You've received money! %0.8f %s :money_with_wings:", newTx.amount / GlobalConfig.RPC.coin_offset, GlobalConfig.RPC.coin_abbv));
+                        PLog->information(Poco::format("User %Lu received %0.8f %s\n", account.first, newTx.amount / GlobalConfig.RPC.coin_offset, GlobalConfig.RPC.coin_abbv));
                     }
 
                     diff.clear();
