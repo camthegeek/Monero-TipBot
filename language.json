@@ -58,11 +58,11 @@
                     },
                     {
                         "key": "TIP_HELP_COMMAND",
-                        "value": "TipBot Commands:\\n"
+                        "value": "MasariPay Commands:\\n"
                     },
                     {
                         "key": "TIP_ADDRESS",
-                        "value": "%s#%s: Your %s Address is: %s"
+                        "value": "<@%?i>: Your %s Address is: ``%s``"
                     },
                     {
                         "key": "PROJECTS_GRANT_ADDRESS",
@@ -70,11 +70,11 @@
                     },
                     {
                         "key": "TIP_BALANCE",
-                        "value": "%s#%s: Your Balance is %0.8f %s and your Unlocked Balance is %0.8f %s"
+                        "value": "<@%?i>'s balance: ```Total Balance: %0.8f %s\\nSpendable Balance: %0.8f %s```"
                     },
                     {
                         "key": "TIP_WITHDRAW_SUSPENDED",
-                        "value": "%s#%s: Withdraws aren't allowed at the moment."
+                        "value": "<@%?i>: Withdraws aren't allowed at the moment."
                     },
                     {
                         "key": "TIP_HISTORY_HEADER",
@@ -86,16 +86,16 @@
                     },
                     {
                         "key": "TIP_GIVE_SUCESS",
-                        "value": "%s#%s: Giving %0.8f %s to %s with TX Hash: %s :smiley:"
+                        "value": "<@%?i>: Giving %0.8f %s to %s with TX Hash: %s :smiley:"
                     },
                     {
                         "key": "TIP_DEV_SUCCESS",
-                        "value": "%s#%s: Giving %0.8f %s to the Dev Fund with TX Hash: %s :smiley: Thank you!"
+                        "value": "<@%?i>: Giving %0.8f %s to the Dev Fund with TX Hash: %s :smiley: Thank you!"
                     },
 
                     {
                         "key": "TIP_WITHDRAW_SUCCESS",
-                        "value": "%s#%s: Withdraw Complete Sent %0.8f %s with TX Hash: %s :smiley:"
+                        "value": "<@%?i>: Withdraw Complete Sent %0.8f %s with TX Hash: %s :smiley:"
                     },
                     {
                         "key": "FAUCET_HELP",
@@ -103,7 +103,7 @@
                     },
                     {
                         "key": "TIP_GIVE_SUSPENDED",
-                        "value": "%s#%s: Give isn't allowed at the moment. :cold_sweat:"
+                        "value": "<@%?i>: Give isn't allowed at the moment. :cold_sweat:"
                     },
                     {
                         "key": "LOTTERY_TICKETS",
@@ -207,7 +207,7 @@
                     },
                     {
                         "key": "LOTTERY_BUY_TICKET_SUCCESS",
-                        "value": "%s#%s: Purchased %?i tickets for %0.8f %s with TX Hash: %s :smiley:"
+                        "value": "<@%?i>: Purchased %?i tickets for %0.8f %s with TX Hash: %s :smiley:"
                     },
                     {
                         "key": "LOTTERY_SUSPENDED",
@@ -227,7 +227,7 @@
                     },
                     {
                         "key": "FAUCET_TAKE_SUCCESS",
-                        "value": "%s#%s: You have been granted %0.8f %s with TX Hash: %s :smiley:\\n"
+                        "value": "<@%?i>: You have been granted %0.8f %s with TX Hash: %s :smiley:\\n"
                     },
                     {
                         "key": "FAUCET_TAKE_PENDING_TRANSACTIONS",

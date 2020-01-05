@@ -84,12 +84,12 @@ void Tip::Help(TIPBOT* DiscordPtr, const UserMessage& message, const Command& me
 
 void Tip::Balance(TIPBOT * DiscordPtr, const UserMessage& message, const struct Command & me)
 {
-    DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_BALANCE"), message.User.username, message.User.discriminator, MyAccount->getBalance() / GlobalConfig.RPC.coin_offset, GlobalConfig.RPC.coin_abbv, MyAccount->getUnlockedBalance() / GlobalConfig.RPC.coin_offset, GlobalConfig.RPC.coin_abbv));
+    DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_BALANCE"), message.User.id, /*message.User.discriminator, */ MyAccount->getBalance() / GlobalConfig.RPC.coin_offset, GlobalConfig.RPC.coin_abbv, MyAccount->getUnlockedBalance() / GlobalConfig.RPC.coin_offset, GlobalConfig.RPC.coin_abbv));
 }
 
 void Tip::MyAddress(TIPBOT * DiscordPtr, const UserMessage& message, const struct Command & me)
 {
-    DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_ADDRESS"), message.User.username, message.User.discriminator, GlobalConfig.RPC.coin_abbv, Account::getWalletAddress(message.User.id)));
+    DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_ADDRESS"), message.User.id, /*message.User.discriminator, */GlobalConfig.RPC.coin_abbv, Account::getWalletAddress(message.User.id)));
 }
 
 void Tip::History(TIPBOT * DiscordPtr, const UserMessage& message, const struct Command & me)
@@ -134,12 +134,12 @@ void Tip::Withdraw(TIPBOT * DiscordPtr, const UserMessage& message, const struct
             const auto amount = Poco::NumberParser::parseFloat(cmd[1]);
             const auto& address = cmd[2];
             const auto tx = MyAccount->transferMoneyToAddress(static_cast<std::uint64_t>(amount * GlobalConfig.RPC.coin_offset), address);
-            DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_WITHDRAW_SUCCESS"), message.User.username, message.User.discriminator, amount, GlobalConfig.RPC.coin_abbv, tx.tx_hash));
+            DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_WITHDRAW_SUCCESS"), message.User.id, /*message.User.discriminator,*/ amount, GlobalConfig.RPC.coin_abbv, tx.tx_hash));
         }
     }
     else
     {
-        DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_WITHDRAW_SUSPENDED"), message.User.username, message.User.discriminator));
+        DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_WITHDRAW_SUSPENDED"), message.User.id /*message.User.discriminator,*/));
     }
 }
 
@@ -155,12 +155,12 @@ void Tip::WithdrawAll(TIPBOT * DiscordPtr, const UserMessage& message, const str
         {
             const auto& address = cmd[1];
             const auto tx = MyAccount->transferAllMoneyToAddress(address);
-            DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_WITHDRAW_SUCCESS"), message.User.username, message.User.discriminator, MyAccount->getUnlockedBalance() / GlobalConfig.RPC.coin_offset, GlobalConfig.RPC.coin_abbv, tx.tx_hash));
+            DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_WITHDRAW_SUCCESS"), message.User.id, /*message.User.discriminator,*/ MyAccount->getUnlockedBalance() / GlobalConfig.RPC.coin_offset, GlobalConfig.RPC.coin_abbv, tx.tx_hash));
         }
     }
     else
     {
-        DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_WITHDRAW_SUSPENDED"), message.User.username, message.User.discriminator));
+        DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_WITHDRAW_SUSPENDED"), message.User.id /*message.User.discriminator,*/));
     }
 }
 
@@ -177,7 +177,7 @@ void Tip::Devs(TIPBOT * DiscordPtr, const UserMessage& message, const struct Com
             const auto amount = Poco::NumberParser::parseFloat(cmd[1]);
             const auto& address = DEV_ADDRESS;
             const auto tx = MyAccount->transferMoneyToAddress(static_cast<std::uint64_t>(amount * GlobalConfig.RPC.coin_offset), address);
-            DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_DEV_SUCCESS"), message.User.username, message.User.discriminator, amount, GlobalConfig.RPC.coin_abbv, tx.tx_hash));
+            DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_DEV_SUCCESS"), message.User.id, /*message.User.discriminator,*/ amount, GlobalConfig.RPC.coin_abbv, tx.tx_hash));
         }
     }
 }
@@ -196,13 +196,13 @@ void Tip::Give(TIPBOT * DiscordPtr, const UserMessage& message, const struct Com
             for (const auto& user : message.Mentions)
             {
                 const auto tx = MyAccount->transferMoneytoAnotherDiscordUser(static_cast<std::uint64_t>(amount * GlobalConfig.RPC.coin_offset), user.id);
-                DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_GIVE_SUCESS"), message.User.username, message.User.discriminator, amount, GlobalConfig.RPC.coin_abbv, user.username, tx.tx_hash));
+                DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_GIVE_SUCESS"), message.User.id, /*message.User.discriminator,*/ amount, GlobalConfig.RPC.coin_abbv, user.username, tx.tx_hash));
             }
         }
     }
     else
     {
-        DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_GIVE_SUSPENDED"), message.User.username, message.User.discriminator));
+        DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_GIVE_SUSPENDED"), message.User.id /*message.User.discriminator,*/));
     }
 }
 
@@ -217,12 +217,12 @@ void Tip::GiveAll(TIPBOT * DiscordPtr, const UserMessage& message, const struct 
         else
         {
             const auto tx = MyAccount->transferAllMoneytoAnotherDiscordUser(message.Mentions[0].id);
-            DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_GIVE_SUCESS"), message.User.username, message.User.discriminator, static_cast<double>(MyAccount->getUnlockedBalance() / GlobalConfig.RPC.coin_offset), GlobalConfig.RPC.coin_abbv, message.Mentions[0].username, tx.tx_hash));
+            DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_GIVE_SUCESS"), message.User.id, /*message.User.discriminator,*/ static_cast<double>(MyAccount->getUnlockedBalance() / GlobalConfig.RPC.coin_offset), GlobalConfig.RPC.coin_abbv, message.Mentions[0].username, tx.tx_hash));
         }
     }
     else
     {
-        DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_GIVE_SUSPENDED"), message.User.username, message.User.discriminator));
+        DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "TIP_GIVE_SUSPENDED"), message.User.id /*message.User.discriminator,*/));
     }
 }
 
