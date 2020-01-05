@@ -8,6 +8,54 @@
                         "key": "TIP_HISTORY_INC_HEADER",
                         "value": "Your Incoming Transactions (last 5): \\n"
                     },
+             	    {
+                        "key": "PROJECTS_GRANT_SUCCESS",
+                        "value": "Transfering all funds from project %s to user %s with tx hash %s"
+                    },
+		    {
+                        "key": "PROJECTS_FUND_SUCCESS",
+                        "value": "Sending %0.8f %s to project %s with tx hash %s"
+                    },
+		    {
+                        "key": "PROJECTS_VIEW_STATUS_LIST",
+                        "value": "%s:\\n```Description: %s\\nBalance: %0.8f %s\\nUnlocked Balance: %0.8f %s\\nGoal: %0.8f %s\\nPercentage Complete: %0.2f%%```"
+                    },
+		    {
+                        "key": "PROJECTS_LIST_HEADER",
+                        "value": "Project, Descrption, Goal, Percentage Funded, Suspended\\n"
+                    },
+		    {
+                        "key": "PROJECTS_DIRECT_ADDRESS",
+                        "value": "Project Direct Address: %s"
+                    },
+		    {
+                        "key": "PROJECTS_NO_PROJECTS",
+                        "value": "No Projects!"
+                    },
+		    {
+                        "key": "PROJECTS_CREATED_SUCCESS",
+                        "value": "Project created successfully!"
+                    },
+		    {
+                        "key": "PROJECTS_DELETE_SUCCESS",
+                        "value": "Project deleted successfully!"
+                    },
+		    {
+                        "key": "PROJECTS_TOGGLE_STATUS",
+                        "value": "Project Status : %b"
+                    },
+		    {
+                        "key": "PROJECTS_ERROR_GOAL_ZERO",
+                        "value": "Project goal cannot be zero!"
+                    },
+		    {
+                        "key": "PROJECTS_NOT_EXIST",
+                        "value": "Error project doesn't exist!"
+                    },
+		    {
+                        "key": "PROJECTS_SUSPENDED",
+                        "value": "Project Suspended!"
+                    },
                     {
                         "key": "TIP_HELP_COMMAND",
                         "value": "TipBot Commands:\\n"
@@ -15,6 +63,10 @@
                     {
                         "key": "TIP_ADDRESS",
                         "value": "%s#%s: Your %s Address is: %s"
+                    },
+                    {
+                        "key": "PROJECTS_GRANT_ADDRESS",
+                        "value": "Transfering all funds from project %s to MSR Address: %s with tx hash %s"
                     },
                     {
                         "key": "TIP_BALANCE",
@@ -36,6 +88,11 @@
                         "key": "TIP_GIVE_SUCESS",
                         "value": "%s#%s: Giving %0.8f %s to %s with TX Hash: %s :smiley:"
                     },
+                    {
+                        "key": "TIP_DEV_SUCCESS",
+                        "value": "%s#%s: Giving %0.8f %s to the Dev Fund with TX Hash: %s :smiley: Thank you!"
+                    },
+
                     {
                         "key": "TIP_WITHDRAW_SUCCESS",
                         "value": "%s#%s: Withdraw Complete Sent %0.8f %s with TX Hash: %s :smiley:"
@@ -138,7 +195,7 @@
                     },
                     {
                         "key": "LOTTERY_GAME_INFO",
-                        "value": "Game Info:\\n```Minimum Ticket Cost %f %s\\nFaucet Donation: %f%% of the reward\\nNo Winner: %f%% of the drawing will be no winner.\\nDays: Lottery starts on %s 00:00 UTC and end on %s %?i UTC. Winners announced on %s %?i UTC\\nIn the event of no winner the jackpot is rolled over to next drawing\\nWinner will be direct messaged.\\n```"
+                        "value": "Game Info:\\n```Minimum Ticket Cost %f %s\\nDev Donation: %f%% of the reward\\nNo Winner: %f%% of the drawing will be no winner.\\nDays: Lottery starts on %s 00:00 UTC and end on %s %?i UTC. Winners announced on %s %?i UTC\\nIn the event of no winner the jackpot is rolled over to next drawing\\nWinner will be direct messaged.\\n```"
                     },
                     {
                         "key": "LOTTERY_HELP",
