@@ -328,7 +328,7 @@ void Lottery::BuyTicket(TIPBOT* DiscordPtr, const UserMessage& message, const Co
                 LotteryAccount->MyAccount.resyncAccount();
                 const auto tickets = Poco::NumberParser::parseUnsigned(cmd[1]);
                 const auto tx = currentUsrAccount->transferMoneyToAddress((tickets * GlobalConfig.Lottery.ticket_cost) * GlobalConfig.RPC.coin_offset, LotteryAccount->MyAccount.getMyAddress());
-                DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "LOTTERY_BUY_TICKET_SUCCESS"), message.User.username, message.User.discriminator, tickets, tickets * GlobalConfig.Lottery.ticket_cost, GlobalConfig.RPC.coin_abbv, tx.tx_hash));
+                DiscordPtr->SendMsg(message, Poco::format(GETSTR(DiscordPtr->getUserLang(message.User.id), "LOTTERY_BUY_TICKET_SUCCESS"), message.User.id, tickets, tickets * GlobalConfig.Lottery.ticket_cost, GlobalConfig.RPC.coin_abbv, tx.tx_hash));
             }
         }
         else DiscordPtr->SendMsg(message, GETSTR(DiscordPtr->getUserLang(message.User.id), "LOTTERY_SUSPENDED"));
