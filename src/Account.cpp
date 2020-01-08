@@ -104,7 +104,7 @@ TransferRet Account::transferMoneytoAnotherDiscordUser(std::uint64_t amount, Dis
         throw GeneralAccountError("Invalid Address.");
 
 
-    auto ret = RPCPtr->tranfer(Discord_ID, amount, DiscordUserAddress);
+    auto ret = RPCPtr->tranfer(amount, DiscordUserAddress);
 
     // Set Outgoing TX Note
     RPCPtr->setTXNote({ ret.tx_hash }, { Poco::format("%Lu", DIS_ID) });
@@ -143,7 +143,7 @@ TransferRet Account::transferAllMoneytoAnotherDiscordUser(DiscordID DIS_ID)
     if (DiscordUserAddress.length() != GlobalConfig.RPC.address_length)
         throw GeneralAccountError("Invalid Address.");
 
-    auto ret = RPCPtr->sweepAll(Discord_ID, DiscordUserAddress);
+    auto ret = RPCPtr->sweepAll(DiscordUserAddress);
 
     // Set Outgoing TX Note
     RPCPtr->setTXNote({ ret.tx_hash }, { Poco::format("%Lu", DIS_ID) });
@@ -178,7 +178,7 @@ TransferRet Account::transferMoneyToAddress(std::uint64_t amount, const std::str
     if (address == MyAddress)
         throw GeneralAccountError("Don't transfer money to yourself.");
 
-    auto ret = RPCPtr->tranfer(Discord_ID, amount, address);
+    auto ret = RPCPtr->tranfer(amount, address);
 
     // Set Outgoing TX Note
     RPCPtr->setTXNote({ ret.tx_hash }, { "-1" });
@@ -207,7 +207,7 @@ TransferRet Account::transferAllMoneyToAddress(const std::string& address)
     if (address == MyAddress)
         throw GeneralAccountError("Don't transfer money to yourself.");
 
-    auto ret = RPCPtr->sweepAll(Discord_ID, address);
+    auto ret = RPCPtr->sweepAll(address);
 
     // Set Outgoing TX Note
     RPCPtr->setTXNote({ ret.tx_hash }, { "-1" });

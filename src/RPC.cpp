@@ -160,7 +160,7 @@ unsigned int RPC::getBlockHeight(int id) const
     return result["height"].convert<unsigned int>();
 }
 
-TransferRet RPC::tranfer(std::uint64_t payment_id, std::uint64_t amount, const std::string & address, int id)  const
+TransferRet RPC::tranfer(std::uint64_t amount, const std::string & address, int id)  const
 {
     TransferRet ret;
 
@@ -173,7 +173,6 @@ TransferRet RPC::tranfer(std::uint64_t payment_id, std::uint64_t amount, const s
     object["address"] = address;
     destinations.push_back(object);
 
-    params["payment_id"] = Poco::format("%064Lu", payment_id);
     params["destinations"] = destinations;
     params["mixin"] = GlobalConfig.RPC.mixin;
     params["get_tx_key"] = true;
@@ -198,7 +197,7 @@ TransferRet RPC::tranfer(std::uint64_t payment_id, std::uint64_t amount, const s
     return ret;
 }
 
-TransferRet RPC::sweepAll(std::uint64_t payment_id, const std::string & address, int id) const
+TransferRet RPC::sweepAll(const std::string & address, int id) const
 {
     TransferRet ret;
 
@@ -206,7 +205,6 @@ TransferRet RPC::sweepAll(std::uint64_t payment_id, const std::string & address,
     Poco::DynamicStruct params;
 
     params["address"] = address;
-    params["payment_id"] = Poco::format("%064Lu", payment_id);
     params["mixin"] = GlobalConfig.RPC.mixin;
     params["get_tx_keys"] = true;
     params["unlock_time"] = 0;
@@ -265,7 +263,6 @@ TransferList RPC::getTransfers(int id) const
             for (auto it : result)
             {
                 ts.tx_hash = it["txid"].toString();
-                ts.payment_id = it["payment_id"].convert<std::uint64_t>();
                 ts.block_height = it["height"].convert<unsigned int>();
                 if (it["amount"].isInteger())
                 {
