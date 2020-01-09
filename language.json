@@ -248,6 +248,26 @@
                     {
                         "key": "LOTTERY_USER_WON",
                         "value": "You've won %0.8f %s from the lottery! :money_with_wings:"
+                    },
+                    {
+                        "key": "BET_MADE",
+                        "value": "<@%?i>: Your bet of `%s` has a **%s percent chance of winning %0.8f %s**!\\n Please send %0.8f %s to `%s`. \\n View your game details at: %s"
+                    },
+                    {
+                        "key": "BET_AMOUNT_ERROR",
+                        "value": "no more than 100 but less than 5 danks"
+                    },
+                    {
+                        "key": "BET_CHARLEN_ERROR",
+                        "value": "more than 12 characters detected"
+                    },
+                    {
+                        "key": "BET_INVALIDBETCHARS_ERROR",
+                        "value": "Some invalid characters are present (A-Z 0-9 only)"
+                    },
+                    {
+                        "key": "BET_MULTIPLEBETCHARS_ERROR",
+                        "value": "Multple characters detected. One of each A-F 0-9 please."
                     }
                 ]
             },

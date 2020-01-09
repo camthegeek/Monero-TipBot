@@ -11,6 +11,8 @@ include_directories(
 	extern/poco-1.9.0/Net/include
 	extern/poco-1.9.0/Util/include
 	extern/cereal-1.2.2/include
+	extern/nlohmann/include
+	extern/cpr/include
     )
 
 if(NOT CMAKE_BUILD_TYPE)

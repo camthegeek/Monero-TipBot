@@ -34,6 +34,7 @@ GNU General Public License for more details.
 #include "Poco/PatternFormatter.h"
 #include "Language.h"
 #include "Dummy.h"
+#include "MasariWin.h"
 
 #define COIN_CONFIG "Coins/"
 #define LANG_CONFIG "language.json"
