@@ -160,7 +160,7 @@ TransferRet Account::transferMoneyToAddress(std::uint64_t amount, const std::str
     // Resync account.
     resyncAccount();
 
-    if ((address.length() != GlobalConfig.RPC.address_length)&&(address.length() != GlobalConfig.RPC.integrated_address_length))
+    if ((address.length() != GlobalConfig.RPC.address_length) && (address.length() != GlobalConfig.RPC.integrated_address_length))
         throw GeneralAccountError("Invalid Address.");
 
     if (amount == UnlockedBalance)
@@ -195,7 +195,7 @@ TransferRet Account::transferAllMoneyToAddress(const std::string& address)
     // Resync account.
     resyncAccount();
 
-    if (address.length() != GlobalConfig.RPC.address_length || address.length() != GlobalConfig.RPC.integrated_address_length)
+    if ((address.length() != GlobalConfig.RPC.address_length) && (address.length() != GlobalConfig.RPC.integrated_address_length))
         throw GeneralAccountError("Invalid Address.");
 
     if (UnlockedBalance == 0)
